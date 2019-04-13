@@ -1,0 +1,46 @@
+_set-sizes($sizes...)
+  $new-sizes = ()
+
+  for $size in $sizes
+    if _check-size($size)
+      push($new-sizes, $size)
+    else
+      $position = index($sizes, $size) + 1
+      error('Invaild size in the ' + $position + ' position. Size must be a number')
+
+  stylbp.sizes = $new-sizes
+
+
+_set-names($names...)
+  $new-names = ()
+
+  for $name in $names
+    if _check-name($name)
+      push($new-names, unquote($name))
+    else
+      $position = index($names, $name) + 1
+      error('Invaild name in the ' + $position + ' position. Name must be a string or ident')
+
+  stylbp.names = $new-names
+
+
+_set-base-font-size($size)
+  if _check-base-font-size($size)
+    stylbp.base-font-size = $size
+  else
+    error("'base-font-size' must be a number")
+
+
+_set-units($unit)
+  if _check-unit($unit)
+    $unit = unquote($unit)
+    stylbp.units = $unit
+  else
+    error("'units' must be 'px' or 'rem'")
+
+
+_set-disallow-min-breakpoint($value)
+  if _check-disallow-min-breakpoint($value)
+    stylbp.disallow-min-breakpoint = $value
+  else
+    error("'disallow-min-breakpoint' must be a boolean")

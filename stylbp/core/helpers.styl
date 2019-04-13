@@ -1,0 +1,37 @@
+_is-number($number)
+  if typeof($number) is 'unit'
+    if unit($number) is ''
+      return true
+  return false
+
+
+_is-string($str)
+  if typeof($str) is not 'unit'
+    if typeof($str) is 'string' or typeof($str) is 'ident'
+      return true
+  return false
+
+
+_is-boolean($bool)
+  if typeof($bool) is 'boolean'
+    return true
+  return false
+
+
+_is-base-font-size()
+  if base-font-size in stylbp 
+    if _check-base-font-size(stylbp.base-font-size)
+      return true
+  return false
+
+
+_is-first($name)
+  if index(stylbp.names, $name) is 0
+    return true
+  return false
+
+
+_is-last($name)
+  if index(stylbp.names, $name) is length(stylbp.names) - 1
+    return true
+  return false

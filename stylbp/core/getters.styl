@@ -1,0 +1,20 @@
+_get-breakpoint($name)
+  if $name in stylbp.names
+    $name-index = index(stylbp.names, $name)
+    return stylbp.sizes[$name-index]
+  error('Unvalid breakpoint: ' + $name)
+
+
+_get-next($name)
+  unless _is-last($name)
+    $index = index(stylbp.names, $name)
+    return stylbp.sizes[$index + 1]
+  error('Max breakpoint')
+
+
+_get-units()
+  return stylbp.units
+
+
+_get-base-font-size()
+  return stylbp.base-font-size
