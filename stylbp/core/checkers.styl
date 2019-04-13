@@ -1,0 +1,36 @@
+_check-size($size)
+  return _is-number($size)
+
+
+_check-name($name)
+  return _is-string($name)
+
+
+_check-unit($unit)
+  if unquote($unit) in (px rem)
+    return true
+  return false
+
+
+_check-base-font-size($size)
+  if _is-number($size)
+    return true
+  return false
+
+
+_check-disallow-min-breakpoint($bool)
+  if _is-boolean($bool)
+    return true
+  return false
+
+
+_check-min-breakpoint($name)
+  return (not _is-first($name)) or (not stylbp.disallow-min-breakpoint)
+
+
+_check-all()
+  unless length(stylbp.names) is length(stylbp.sizes)
+    error('The number of names must be equal to the number of sizes')
+
+  if (stylbp.units is rem) and (not stylbp.base-font-size)
+    error("'base-font-size' must be specified if 'rem' is used")

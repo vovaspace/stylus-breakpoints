@@ -1,0 +1,75 @@
+_lead-to-units($number)
+  if _is-number($number)
+    if _get-units() is px
+      return $number * 1px
+    else
+      return $number / _get-base-font-size() * 1rem
+  error('Invalid argument')
+
+
+breakpoint-up($bpValue)
+  if length(arguments) > 1
+    error('Only one argument is required')
+
+  if _is-number($bpValue)
+    $bp = $bpValue
+  else
+    $bp = _get-breakpoint($bpValue)
+    unless _check-min-breakpoint($bpValue)
+      error("You cannot use the minimum breakpoint when 'disallow-min-breakpoint' is true")
+  
+  @media screen and (min-width: _lead-to-units($bp))
+    {block}
+
+
+breakpoint-range($bpMinValue, $bpMaxValue)
+  if length(arguments) > 2
+    error('Only two arguments are required')
+
+  if _is-number($bpMinValue)
+    $bpMin = $bpMinValue
+  else
+    $bpMin = _get-breakpoint($bpMinValue)
+    unless _check-min-breakpoint($bpMinValue)
+      $bpMin = 0
+  
+  if _is-number($bpMaxValue)
+    $bpMax = $bpMaxValue
+  else
+    $bpMax = _get-breakpoint($bpMaxValue)
+
+  if $bpMin > $bpMax
+    error('The upper breakpoint must be larger than the lower one')
+  
+  @media screen and (min-width: _lead-to-units($bpMin)) and (max-width: _lead-to-units($bpMax - 0.02))
+    {block}
+
+
+breakpoint-only($bpName)
+  if length(arguments) > 1
+    error('Only one argument is required')
+
+  $bp = _get-breakpoint($bpName)
+
+  unless _check-min-breakpoint($bpName)
+    $bp = 0
+
+  $bpNext = _get-next($bpName)
+
+  @media screen and (min-width: _lead-to-units($bp)) and (max-width: _lead-to-units($bpNext - 0.02))
+    {block}
+
+
+breakpoint-down($bpValue)
+  if length(arguments) > 1
+    error('Only one argument is required')
+
+  if _is-number($bpValue)
+    $bp = $bpValue
+  else
+    $bp = _get-breakpoint($bpValue)
+    if _is-first($bpValue)
+      error('You cannot use the minimum breakpoint. Try not to use @media')
+
+  @media screen and (max-width: _lead-to-units($bp - 0.02))
+    {block}
