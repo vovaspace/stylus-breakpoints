@@ -1,6 +1,6 @@
 {
   "name": "stylus-breakpoints",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple @media breakpoints in Stylus",
   "main": "index.js",
   "repository": {
