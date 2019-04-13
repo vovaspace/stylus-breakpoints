@@ -1,0 +1,19 @@
+{
+  "name": "stylus-breakpoints",
+  "version": "1.0.0",
+  "description": "Simple @media breakpoints in Stylus",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vovaspace/stylus-breakpoints.git"
+  },
+  "keywords": [
+    "stylus",
+    "breakpoints",
+    "media",
+    "queries"
+  ],
+  "author": "Vova Space <hi@vovaspace.com> (https://github.com/vovaspace)",
+  "license": "MIT",
+  "homepage": "https://github.com/vovaspace/stylus-breakpoints#readme"
+}
