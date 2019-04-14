@@ -61,18 +61,3 @@ breakpoint-only($bpName)
 
   @media screen and (min-width: _lead-to-units($bp)) and (max-width: _lead-to-units($bpNext - 0.02))
     {block}
-
-
-breakpoint-down($bpValue)
-  if length(arguments) > 1
-    error('Only one argument is required')
-
-  if _is-number($bpValue)
-    $bp = $bpValue
-  else
-    $bp = _get-breakpoint($bpValue)
-    if _is-first($bpValue)
-      error('You cannot use the minimum breakpoint. Try not to use @media')
-
-  @media screen and (max-width: _lead-to-units($bp - 0.02))
-    {block}
