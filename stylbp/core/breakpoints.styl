@@ -37,6 +37,9 @@ breakpoint-range($bpMinValue, $bpMaxValue)
     $bpMax = $bpMaxValue
   else
     $bpMax = _get-breakpoint($bpMaxValue)
+    if _is-last($bpMaxValue)
+      error("You cannot use the maximal breakpoint. Try to use 'breakpoint-up'")
+    $bpMax = _get-next($bpMaxValue)
 
   if $bpMin > $bpMax
     error('The upper breakpoint must be larger than the lower one')
