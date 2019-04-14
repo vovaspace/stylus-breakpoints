@@ -143,7 +143,7 @@ Aliases: `+breakpoint-at(bp)`, `+bp-only(bp)`, `+bp-at(bp)`, `+only(bp)`, `+at(b
 {
   sizes: 320 768 1024 1200
   names: sm md lg hd
-  units: px
+  units: 'px'
   disallow-min-breakpoint: true
 }
 ```
@@ -188,7 +188,7 @@ It should be noted that the **number of names** should be **equal** to the **num
 **Note!** Before using `rem`, you must specify a `base-font-size`.
 ```stylus
 stylbp-set-base-font-size(16)
-stylbp-set-units(rem)
+stylbp-set-units('rem')
 
 .block
   color: #1771f1

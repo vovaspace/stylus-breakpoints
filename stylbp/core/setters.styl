@@ -33,7 +33,6 @@ _set-base-font-size($size)
 
 _set-units($unit)
   if _check-unit($unit)
-    $unit = unquote($unit)
     stylbp.units = $unit
   else
     error("'units' must be 'px' or 'rem'")

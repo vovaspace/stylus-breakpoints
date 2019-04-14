@@ -1,6 +1,6 @@
 _lead-to-units($number)
   if _is-number($number)
-    if _get-units() is px
+    if _get-units() is 'px'
       return $number * 1px
     else
       return $number / _get-base-font-size() * 1rem
