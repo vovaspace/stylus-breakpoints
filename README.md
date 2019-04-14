@@ -19,7 +19,7 @@ Simple @media breakpoints in Stylus.
 Also 'stylus-breakpoints' supports `rem` — see [configuration](#Configuration) for details.
 
 
-# Installation
+## Installation
 ```
 npm i stylus-breakpoints --save-dev
 ```
@@ -69,7 +69,7 @@ stylus(fs.readFileSync('./styles.styl', 'utf8'))
   .render(...)
 ```
 
-# Mixins
+## Mixins
 Almost all mixins can work with both numeric values (pixels)
 and preset breakpoints (they are mentioned in the [Configuration](#Configuration)).
 
@@ -137,7 +137,7 @@ Aliases: `+breakpoint-at(bp)`, `+bp-only(bp)`, `+bp-at(bp)`, `+only(bp)`, `+at(b
 ```
 
 
-# Configuration
+## Configuration
 ### Default configuration
 ```stylus
 {
@@ -148,10 +148,10 @@ Aliases: `+breakpoint-at(bp)`, `+bp-only(bp)`, `+bp-at(bp)`, `+only(bp)`, `+at(b
 }
 ```
 
-## `Sizes` and `Names`
+### `Sizes` and `Names`
 In all mixins above, you can use a preset breakpoint called by name.
 
-### For example
+#### For example
 With default configuration, a code as shown below:
 
 ```stylus
@@ -176,7 +176,7 @@ Will be compiled to:
 }   
 ```
 
-### Setting
+#### Setting
 ```stylus
 stylbp-set-sizes(280, 640, 924, 1080, 1200)
 stylbp-set-names(sm, md, lg, hd, wide)
@@ -184,7 +184,7 @@ stylbp-set-names(sm, md, lg, hd, wide)
 You can choose any names for breakpoints.
 It should be noted that the **number of names** should be **equal** to the **number of sizes**.
 
-## Units — `rem`
+### Units — `rem`
 **Note!** Before using `rem`, you must specify a `base-font-size`.
 ```stylus
 stylbp-set-base-font-size(16)
@@ -244,8 +244,8 @@ Will be compiled to:
 ```
 
 
-## `disallow-min-breakpoint`
-### `true` (default)
+### `disallow-min-breakpoint`
+#### `true` (default)
 `disallow-min-breakpoint: true` **prevents** using `+breakpoint-up($bp)` with minimal preset breakpoint.
 
 Example:
@@ -301,7 +301,7 @@ Will be compiled to:
 }
 ```
 
-### `false`
+#### `false`
 To set `false` use:
 
 ```stylus
@@ -309,7 +309,7 @@ stylbp-set-disallow-min-breakpoint(false)
 ```
 
 
-# Combination of numeric measure and preset breakpoints
+## Combination of numeric measure and preset breakpoints
 For example from `700px` to `hd`:
 ```stylus
 stylbp-set-sizes(280, 640, 924, 1080, 1200)
@@ -321,7 +321,7 @@ stylbp-set-names(sm, md, lg, hd, wide)
 ```
 
 
-# Auto Check
+## Auto Check
 `stylbp-check` called after all setters and validates the build.
 
 ```stylus
@@ -334,7 +334,7 @@ stylbp-check() // --> Error. 'base-font-size' must be specified if 'rem' is used
 ```
 
 
-# Overlap
+## Overlap
 'Stylus-breakpoints' prevents breakpoint slices overlapping with neighbouring slices by reducing the upper boundary by `0.02 px`.
 
 Not OK
