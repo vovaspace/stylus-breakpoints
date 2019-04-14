@@ -7,7 +7,7 @@ _check-name($name)
 
 
 _check-unit($unit)
-  if unquote($unit) in (px rem)
+  if $unit in ('px' 'rem')
     return true
   return false
 
